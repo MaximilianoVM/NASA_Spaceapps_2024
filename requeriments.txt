@@ -2,3 +2,7 @@ streamlit
 langchain
 flask
 langchain-community
+pandas 
+seaborn 
+matplotlib 
+scikit-learn
