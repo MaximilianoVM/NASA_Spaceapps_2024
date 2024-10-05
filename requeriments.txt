@@ -9,3 +9,4 @@ scikit-learn
 pypdf
 sentence-transformers
 faiss-cpu
+jsonify
