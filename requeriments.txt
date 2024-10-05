@@ -1,3 +1,4 @@
 streamlit 
 langchain
 flask
+langchain-community
