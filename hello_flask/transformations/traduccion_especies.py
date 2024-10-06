@@ -18,6 +18,7 @@ def traducir_especies(cultivo):
     return cultivo  # Si no encuentra coincidencia, devuelve el nombre original
 
 
+# ya sin NA
 def create_dataframe_trad(df: pd.DataFrame):
     # Aplicar la traducción a los valores del DataFrame
     df['Species_traducida'] = df['Species'].apply(traducir_especies)
