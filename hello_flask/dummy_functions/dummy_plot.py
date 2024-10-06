@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('data/dummy_data/book_sales.csv', index_col="Date", parse_dates=['Date']).drop(columns='Paperback')
+df = pd.read_csv('dummy_data/book_sales.csv', index_col="Date", parse_dates=['Date']).drop(columns='Paperback')
 
 df['Time'] = np.arange(len(df.index))
 
