@@ -20,7 +20,7 @@ app = Flask(__name__)
 
 # Generate a scatter plot and returns the figure 
 def get_plot(): 
-    df = pd.read_csv('hello_flask/data2/dummy_data/book_sales.csv', index_col="Date", parse_dates=['Date']).drop(columns='Paperback')
+    df = pd.read_csv('hello_flask/dummy_data/book_sales.csv', index_col="Date", parse_dates=['Date']).drop(columns='Paperback')
 
     df['Time'] = np.arange(len(df.index))
 
