@@ -14,3 +14,7 @@ jsonify
 numpy==1.26.4
 spacy
 pydantic==2.2
+geopy
+openmeteo-requests
+requests-cache 
+retry-requests
