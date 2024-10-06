@@ -71,26 +71,51 @@ overflow-x: hidden; ">
             <option value="" selected>Select region</option>
           </select>
         </div>
+        <div class="form-group col-md-4">
+          <select class="form-control select2" id="siteSelect">
+            <option value="" selected>Select site</option>
+          </select>
+        </div>
       </div>
     </div>
 
     <script>
       $("#countrySelect").on('change', function() {
-          
-          $("#regionSelect").html(`<option value="">Select a region</option>`)
-          $.ajax({
-            url: "/regions-by-country",
-            data: {country: this.value},
+          $("#regionSelect").html(`<option value="">Select region</option>`);
+          if(this.value != "") {
+            $.ajax({
+              url: "/regions-by-country",
+              data: {country: this.value},
+              method: "get",
+              dataType: "json",
+              success: function(data) {
+                regions = data.result;
+                regions.forEach((r) => $("#regionSelect").append(`<option value="${r}">${r}</option>`));
+              },
+              fail: function(data) {
+                console.log(data)
+              }
+            });
+          }
+       });
+
+       $("#regionSelect").on('change', function() {
+          $("#siteSelect").html(`<option value="">Select site</option>`);
+          if(this.value != "") {
+            $.ajax({
+            url: "/sites-by-region",
+            data: {region: this.value},
             method: "get",
             dataType: "json",
             success: function(data) {
-              data.forEach((r) => console.log(r));
-               // $("#regionSelect").append(`<option value="${e}">${e}</option>`)
+              sites = data.result;
+              sites.forEach((s) => $("#siteSelect").append(`<option value="${s}">${s}</option>`));
             },
             fail: function(data) {
               console.log(data)
             }
           });
+        }
        });
     </script>
 

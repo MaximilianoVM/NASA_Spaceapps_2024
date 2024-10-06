@@ -57,6 +57,6 @@ def create_dataframe_nasa():
     df = df.sort_values(by='Study_midyear').reset_index(drop=True)
     
     # Exportar los datos
-    df.to_csv(DATADIR_REL_PATH+'/Processed/1_prod_clean_srdb-data-V5.csv', index=False)
+    df.to_csv(DATADIR_REL_PATH+'/1_prod_clean_srdb-data-V5.csv', index=False)
     
     return df

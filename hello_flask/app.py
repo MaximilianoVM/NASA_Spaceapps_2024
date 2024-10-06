@@ -55,11 +55,28 @@ def single_converter():
     
     return render_template('dashboard.html', dashBoardActive = True, countries = get_countries_list()) 
 
+# Create a JSON Encoder class
+class json_serialize(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
+    
 # Root URL 
 @app.route('/regions-by-country') 
 def regions(): 
-   print(get_regions_by_country(request.args.get('country')).tolist)
-   return json.dumps(get_regions_by_country(request.args.get('country')).tolist)
+   print(get_regions_by_country(request.args.get('country')))
+   return json.dumps({'result': get_regions_by_country(request.args.get('country'))}, cls=json_serialize)
+
+# Root URL 
+@app.route('/sites-by-region') 
+def sites(): 
+   print(get_sites_by_region(request.args.get('region')))
+   return json.dumps({'result': get_sites_by_region(request.args.get('region'))}, cls=json_serialize)
 
 # Root URL 
 @app.route('/') 
