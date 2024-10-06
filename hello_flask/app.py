@@ -69,13 +69,11 @@ class json_serialize(json.JSONEncoder):
 # Root URL 
 @app.route('/regions-by-country') 
 def regions(): 
-   print(get_regions_by_country(request.args.get('country')))
    return json.dumps({'result': get_regions_by_country(request.args.get('country'))}, cls=json_serialize)
 
 # Root URL 
 @app.route('/sites-by-region') 
 def sites(): 
-   print(get_sites_by_region(request.args.get('region')))
    return json.dumps({'result': get_sites_by_region(request.args.get('region'))}, cls=json_serialize)
 
 # Root URL 
