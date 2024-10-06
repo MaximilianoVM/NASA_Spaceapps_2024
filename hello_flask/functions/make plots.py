@@ -74,7 +74,7 @@ def plot_massachusettsTvT():
     ax = sns.regplot(x='Time_dummy', y='MAP', data=df_dummy, ci=None, scatter_kws=dict(color='0.25'))
     min_year = df_dummy['Study_midyear'].min()
     max_year = df_dummy['Study_midyear'].max()
-    ax.set_title('MAP over time from'+min_year+'to'+max_year)
+    ax.set_title('MAP over time from 1981.5 to 2011.5')
     return plt.show()
 
 
