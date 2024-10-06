@@ -50,8 +50,6 @@ def single_converter():
 
      # Close the figure to avoid overwriting 
     plot.close() 
-
-    print(get_countries_list())
     
     return render_template('dashboard.html', dashBoardActive = True, countries = get_countries_list()) 
 

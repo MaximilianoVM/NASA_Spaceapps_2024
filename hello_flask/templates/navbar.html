@@ -3,7 +3,7 @@
 </header>
 <br>
 <div style="padding-right: 15%; padding-left: 15%; border-radius: 25px; ">
-    <nav class="navbar navbar-expand-sm navbar-dark " style="border-radius: 25px; z-index: 9999;
+    <nav class="navbar navbar-expand-sm navbar-dark " style="border-radius: 25px; z-index: 9999; position: absolute;
     left: 50%; transform: translatex(-50%); background-color: #1A4D2E; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,15 +16,15 @@
             <li class="{{ 'nav-item active px-4' if dashBoardActive else 'nav-item px-4' }}">
                 <a class="nav-link" href="/dashboard" style="font-family: Verdana;"><i class="fa-solid fa-wheat-awn"> </i> Dashboard </a>
             </li>
+            <li class="{{ 'nav-item active ' if chatActive else 'nav-item' }}">
+                <a class="nav-link" href="/chat" style="font-family: Verdana;"><i class="fa-regular fa-comments"> </i> Chat </a>
+            </li><!--
             <li class="{{ 'nav-item active' if modelsActive else 'nav-item' }}">
                 <a class="nav-link" href="/models" style="font-family: Verdana;"><i class="fa-solid fa-magnifying-glass-chart"> </i> Models </a>
             </li>
-            <li class="{{ 'nav-item active px-4' if chatActive else 'nav-item px-4' }}">
-                <a class="nav-link" href="/chat" style="font-family: Verdana;"><i class="fa-regular fa-comments"> </i> Chat </a>
-            </li>
             <li class="{{ 'nav-item active' if sourcesActive else 'nav-item' }}">
                 <a class="nav-link" href="/sources" style="font-family: Verdana;"><i class="fa-solid fa-box-archive"> </i> Sources </a>
-            </li>
+            </li>-->
             
         </ul>
         </div>
