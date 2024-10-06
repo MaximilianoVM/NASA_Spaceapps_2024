@@ -10,3 +10,4 @@ pypdf
 sentence-transformers
 faiss-cpu
 jsonify
+torch
