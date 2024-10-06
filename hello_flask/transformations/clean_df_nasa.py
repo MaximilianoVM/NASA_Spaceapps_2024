@@ -37,7 +37,7 @@ to_drop = [
 ]
 
 def create_dataframe_nasa():
-    df = pd.read_csv(RELATIVE_PATH, parse_dates=['Entry_date']).drop(columns=to_delete)
+    df = pd.read_csv(RELATIVE_PATH, parse_dates=['Entry_date']).drop(columns=to_drop)
     #exporting the data
     df.to_csv('clean_1_srdb-data-V5.csv', index=False)
     
