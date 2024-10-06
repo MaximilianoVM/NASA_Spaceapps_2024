@@ -1,11 +1,13 @@
 import re
 from datetime import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 import pandas as pd
 import numpy as np
 import os 
+
+import simplejson as json
 
 import matplotlib
 matplotlib.use('Agg')
@@ -15,6 +17,8 @@ import seaborn as sns
 
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
+
+from functions.get_data import *
 
 app = Flask(__name__)
 
@@ -46,8 +50,16 @@ def single_converter():
 
      # Close the figure to avoid overwriting 
     plot.close() 
+
+    print(get_countries_list())
     
-    return render_template('dashboard.html', dashBoardActive = True) 
+    return render_template('dashboard.html', dashBoardActive = True, countries = get_countries_list()) 
+
+# Root URL 
+@app.route('/regions-by-country') 
+def regions(): 
+   print(get_regions_by_country(request.args.get('country')).tolist)
+   return json.dumps(get_regions_by_country(request.args.get('country')).tolist)
 
 # Root URL 
 @app.route('/') 
