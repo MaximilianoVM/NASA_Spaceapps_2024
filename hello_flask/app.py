@@ -16,13 +16,11 @@ import seaborn as sns
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
-
 app = Flask(__name__)
-
 
 # Generate a scatter plot and returns the figure 
 def get_plot(): 
-    df = pd.read_csv('data/dummy_data/book_sales.csv', index_col="Date", parse_dates=['Date']).drop(columns='Paperback')
+    df = pd.read_csv('data2/dummy_data/book_sales.csv', index_col="Date", parse_dates=['Date']).drop(columns='Paperback')
 
     df['Time'] = np.arange(len(df.index))
 
