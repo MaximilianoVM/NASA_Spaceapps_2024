@@ -18,3 +18,4 @@ geopy
 openmeteo-requests
 requests-cache 
 retry-requests
+pip install langchain-openai
