@@ -10,5 +10,6 @@ pypdf
 sentence-transformers
 faiss-cpu
 jsonify
-torch
+numpy
 spacy
+torch
