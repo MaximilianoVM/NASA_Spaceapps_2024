@@ -60,3 +60,18 @@ def create_dataframe_nasa():
     df.to_csv(DATADIR_REL_PATH+'/1_prod_clean_srdb-data-V5.csv', index=False)
     
     return df
+
+def create_dataframe_nasa_full():
+    PERC_NAS = 0.5
+    #borrar solo las columnas que tengan mas del 50% de valores nulos
+    
+    # Supongamos que ya tienes un DataFrame llamado df
+    df = pd.read_csv(REL_PATH)
+    
+    # Calcular el umbral (50% de las filas)
+    threshold = len(df) * PERC_NAS
+
+    # Borrar las columnas que tengan más del 50% de valores nulos
+    df_cleaned = df.dropna(axis=1, thresh=threshold)
+    
+    return df_cleaned
