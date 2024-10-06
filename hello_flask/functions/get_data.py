@@ -1,7 +1,8 @@
 import pandas as pd
 
 PATH = '/home/max/workspace/NASA_Spaceapps_2024/data/DEF_SRDB_V5_1827_5-20241005_212220/srdb-data-V5.csv'
-RELATIVE_PATH = 'data/DEF_SRDB_V5_1827_5-20241005_212220/srdb-data-V5.csv'
+#RELATIVE_PATH = 'data/DEF_SRDB_V5_1827_5-20241005_212220/srdb-data-V5.csv'
+RELATIVE_PATH = 'hello_flask/data/DEF_SRDB_V5_1827_5-20241005_212220/srdb-data-V5.csv'
 
 to_delete = ['Record_number', 
 'Study_number', 
@@ -17,7 +18,7 @@ to_delete = ['Record_number',
 'Partition_method'
 ]
 
-df = pd.read_csv(PATH, parse_dates=['Entry_date']).drop(columns=to_delete)
+df = pd.read_csv(RELATIVE_PATH, parse_dates=['Entry_date']).drop(columns=to_delete)
 
 #exporting the data
 df.to_csv('clean_1_srdb-data-V5.csv', index=False)
