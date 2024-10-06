@@ -1,5 +1,6 @@
 streamlit 
 langchain
+torch
 flask
 langchain-community
 pandas 
@@ -12,4 +13,4 @@ faiss-cpu
 jsonify
 numpy==1.26.4
 spacy
-torch
+pydantic==2.2
