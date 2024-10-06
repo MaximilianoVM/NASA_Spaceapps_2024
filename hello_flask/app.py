@@ -36,7 +36,7 @@ def get_plot():
     return plt
 
 # Root URL 
-@app.get('/') 
+@app.get('/dashboard') 
 def single_converter(): 
     # Get the matplotlib plot  
     plot = get_plot() 
@@ -47,7 +47,25 @@ def single_converter():
      # Close the figure to avoid overwriting 
     plot.close() 
     
-    return render_template('matplotlib-plot1.html') 
+    return render_template('dashboard.html', dashBoardActive = True) 
+
+# Root URL 
+@app.route('/') 
+@app.route('/home')
+def home(): 
+    return render_template('home.html', homeActive = True) 
+
+@app.route('/models')
+def models(): 
+    return render_template('models.html', modelsActive = True) 
+
+@app.route('/chat')
+def chat(): 
+    return render_template('chat.html', chatActive = True) 
+
+@app.route('/sources')
+def sources(): 
+    return render_template('sources.html', sourcesActive = True) 
   
 # Main Driver Function  
 if __name__ == '__main__': 
